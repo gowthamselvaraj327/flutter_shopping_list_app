@@ -20,13 +20,17 @@ class _NewItemState extends State<NewItem> {
   var _enteredName = '';
   var _enteredQuantity = 1;
   var _selectedCategory = categories[Categories.vegetables]!;
+  var _isSending = false;
 
   void _saveItem() async {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
+      setState(() {
+        _isSending = true;
+      });
       final url = Uri.https(
         'your-firebase-url',
-        'your-firebase-json-name',
+        'your-firebase-url.json',
       );
       final response = await http.post(
         url,
@@ -137,17 +141,26 @@ class _NewItemState extends State<NewItem> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   TextButton(
-                    onPressed: () {
-                      _formKey.currentState!.reset();
-                      setState(() {
-                        _selectedCategory = categories[Categories.vegetables]!;
-                      });
-                    },
+                    onPressed: _isSending
+                        ? null
+                        : () {
+                            _formKey.currentState!.reset();
+                            setState(() {
+                              _selectedCategory =
+                                  categories[Categories.vegetables]!;
+                            });
+                          },
                     child: Text('Reset'),
                   ),
                   ElevatedButton(
-                    onPressed: _saveItem,
-                    child: const Text('Add Item'),
+                    onPressed: _isSending ? null : _saveItem,
+                    child: _isSending
+                        ? const SizedBox(
+                            height: 16,
+                            width: 16,
+                            child: CircularProgressIndicator(),
+                          )
+                        : const Text('Add Item'),
                   ),
                 ],
               ),
