@@ -1,16 +1,54 @@
-# shopping_list
+# Flutter Shopping List
 
-A new Flutter project.
+A simple **Flutter Shopping List** application that allows users to add and manage grocery items they need to buy.  
+This project is built as part of my Flutter learning journey and focuses on handling user input, managing lists, and updating the UI dynamically.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## Features
 
-A few resources to get you started if this is your first Flutter project:
+- Add grocery items to the shopping list  
+- View all added items in a list  
+- Dynamically update the list when items are added  
+- Clean and simple user interface  
+- Responsive layout for different screen sizes  
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Technologies Used
+
+| Technology | Purpose |
+|-------------|----------|
+| **Flutter** | Cross-platform UI toolkit |
+| **Dart** | Programming language used by Flutter |
+| **Stateful Widgets** | Managing dynamic UI updates |
+| **Form Inputs** | Collecting user-entered data |
+
+---
+
+## Installation & Setup
+
+### 1. Clone the Repository
+```
+git clone https://github.com/gowthamselvaraj327/flutter_shopping_list_app.git
+cd flutter_shopping_list_app
+```
+### 2. Install Dependencies
+```
+flutter pub get
+```
+### 3. Run the App
+```
+flutter run
+```
+
+## Concepts Learned
+- Handling user input in Flutter
+
+- Updating UI dynamically using state
+
+- Working with lists and data models
+
+- Building reusable widgets
+
+- Structuring small Flutter applications
